@@ -1,7 +1,6 @@
 
 Search = () => {
     word = document.getElementById("srchtxt").value;
-    document.getElementById("inputtxt").innerHTML=word;
     if (word.length == 0) {
         document.getElementById("error").innerHTML = "enter value"
     }
@@ -22,6 +21,9 @@ let synonymsdata = [];
 let antonymsdata = [];
 let definations = [];
 showdata = (data) => {
+    synonymsdata=[];
+    antonymsdata = [];
+    definations=[];
     word = document.getElementById("srchtxt").value="";
     myarray = data[0];
     let meanings = myarray.meanings[0];
@@ -71,9 +73,11 @@ displaydata = () => {
     document.getElementById('synonum').innerHTML ="";
     document.getElementById('antonyms').innerHTML ="";
     document.getElementById('definations').innerHTML ="";
+  
     let syn = synonymsdata.map((elements) => {
         return elements;
     });
+
     document.getElementById('synonum').innerHTML = syn.join(",");
 
     document.getElementById("antonyms").innerHTML = antonymsdata.map((elements) => {
